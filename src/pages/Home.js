@@ -1,4 +1,4 @@
-// import Card from '../components/Card';
+import Card from '../components/Card';
 
 export default function Home() {
     return (
@@ -9,7 +9,7 @@ export default function Home() {
             </div>
             <div>
             
-                {/* <Card key='cards'/> */}
+                <Card key='cards'/>
                 
             </div>
         </div>
