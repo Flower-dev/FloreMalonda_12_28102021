@@ -24,38 +24,40 @@ export default function Sidebar() {
   return (
     <Router>
       <div className='sidebar'>
-        <div className='logo'>
-          <Link className='nav' to='/'>
+        <div className='sidebar_logo'>
+          <Link to='/'>
             <img src={Logo} alt='logo'/>
           </Link>
         </div>
-        <div className='sidebar_link'>
-          <Link to='/'>
+        <div className='sidebar_container'>
+          <div className='sidebar_link'>
+            <Link to='/'>
+                <div className='block-link'>
+                  <img className='link_img' src={Meditation} alt='meditation'/>
+                </div>
+            </Link>
+          </div>
+          <div className='sidebar_link'>
+            <Link to='/'>
               <div className='block-link'>
-                <img src={Meditation} alt='meditation'/>
+                <img className='link_img' src={Swim} alt='swim'/>
               </div>
-          </Link>
-        </div>
-        <div className='sidebar_link'>
-          <Link to='/'>
-            <div className='block-link'>
-              <img src={Swim} alt='swim'/>
-            </div>
-          </Link>
-        </div>
-        <div className='sidebar_link'>
-          <Link to='/'>
-            <div className='block-link'>
-              <img src={Bike} alt='bike'/>
-            </div>
-          </Link>
-        </div>
-        <div className='sidebar_link'>
-          <Link to='/'>
-            <div className='block-link'>
-              <img src={Muscu} alt='muscu'/>
-            </div>
-          </Link>
+            </Link>
+          </div>
+          <div className='sidebar_link'>
+            <Link to='/'>
+              <div className='block-link'>
+                <img className='link_img' src={Bike} alt='bike'/>
+              </div>
+            </Link>
+          </div>
+          <div className='sidebar_link'>
+            <Link to='/'>
+              <div className='block-link'>
+                <img className='link_img' src={Muscu} alt='muscu'/>
+              </div>
+            </Link>
+          </div>
         </div>
         <div>
           <p className='copyright'>Copyright, SportSee 2020</p>

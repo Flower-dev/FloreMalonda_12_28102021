@@ -14,24 +14,21 @@ import Home from '../pages/Home';
 export default function Header () {
     return (
         <Router>
-          <div className='navbar'>
-            {/* <div className='logo'>
-              <Link className='nav' to='/'>
-                <img src={Logo} alt='logo'/>
-              </Link>
-            </div> */}
-            <div className='navli'>
-              <Link className='nav' to='/'>Accueil</Link>
-            </div>
-            <div className='navli'>
-              <Link className='nav' to='/'>Profil</Link>
-            </div>
-            <div className='navli'>
-              <Link className='nav' to='/'>Réglages</Link>
-            </div>
-            <div className='navli'>
-              <Link className='nav' to='/'>Communauté</Link>
-            </div>    
+          <div className='navbar_container'>
+            <div className='navbar'>
+              <div className='navli'>
+                <Link className='nav' to='/'>Accueil</Link>
+              </div>
+              <div className='navli'>
+                <Link className='nav' to='/'>Profil</Link>
+              </div>
+              <div className='navli'>
+                <Link className='nav' to='/'>Réglages</Link>
+              </div>
+              <div className='navli'>
+                <Link className='nav' to='/'>Communauté</Link>
+              </div> 
+            </div>   
           </div> 
 
           <Switch>

@@ -1,14 +1,27 @@
 .sidebar {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
     left: 0px;
     top: 0px;
-    justify-content: space-between;
     background-color: #020203;
     width: 117px;
     height: 100vh;
     position: absolute;
+
+    .sidebar_logo {
+        align-items: center;
+        padding-top: 14%;
+        padding-left: 25%;
+    }
+
+    .sidebar_container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        height: 50%;
+        padding-left: 25%;
+        padding-top: 80%;
+        padding-bottom: 25%;
+    }
 
 
     .block-link {
@@ -17,11 +30,18 @@
         width: 64px;
         height: 64px;
         text-align: center;
+
+        .link_img {
+            padding-top: 25%;
+        }
     }
 
 }
 
 .copyright {
     writing-mode: vertical-rl;
-    text-orientation: sideways-left;
+    text-orientation: sideways-right;
+    color: #FFFFFF;
+    font-size: 12px;
+    padding-left: 35%;
 }
