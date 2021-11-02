@@ -5,6 +5,20 @@
     left: 0px;
     top: 0px;
     justify-content: space-between;
+    background-color: #020203;
+    width: 117px;
+    height: 100vh;
+    position: absolute;
+
+
+    .block-link {
+        background: #FFFFFF;
+        border-radius: 6px;
+        width: 64px;
+        height: 64px;
+        text-align: center;
+    }
+
 }
 
 .copyright {

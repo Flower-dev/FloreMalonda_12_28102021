@@ -1,16 +1,17 @@
-import Card from '../components/Card';
+// components
+import Card from '../components/home/Card';
+// custom
+import '../custom/pages/home.scss'
 
 export default function Home() {
     return (
-        <div>
-            <div style={{textAlign:'center'}}>
+        <div className='container'>
+            <div className='title_container'>
                 <h2> Hello Max</h2>
                 <p>Félicitation ! Vous avez explosé vos objectifs hier 👏🏻</p>
             </div>
-            <div>
-            
+            <div className='card_container'>
                 <Card key='cards'/>
-                
             </div>
         </div>
     )
