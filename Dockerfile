@@ -16,7 +16,7 @@ COPY package.json ./
 RUN npm install --silent
 RUN npm install react-scripts -g --silent
 RUN npm install node-sass
-
+RUN npm install recharts
 # add app
 COPY . ./
 

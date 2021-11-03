@@ -12,8 +12,8 @@ export default function Card() {
     return (
         <div className='section_card'>
             <div className='card'>
-                <div>
-                    <img src={Flame} alt='flame'/>
+                <div className='card_img1'>
+                    <img className='card_img' src={Flame} alt='flame'/>
                 </div>
                 <div>
                     <p className='values'>Test</p>
@@ -21,8 +21,8 @@ export default function Card() {
                 </div>
             </div>
             <div className='card'>
-                <div>
-                    <img src={Chicken} alt='chicken'/>
+                <div className='card_img2'>
+                    <img className='card_img' src={Chicken} alt='chicken'/>
                 </div>
                 <div>
                     <p className='values'>Test</p>
@@ -30,8 +30,8 @@ export default function Card() {
                 </div>
             </div>
             <div className='card'>
-                <div>
-                    <img src={Apple} alt='apple'/>
+                <div className='card_img3'>
+                    <img className='card_img' src={Apple} alt='apple'/>
                 </div>
                 <div>
                     <p className='values'>Test</p>
@@ -39,8 +39,8 @@ export default function Card() {
                 </div>
             </div>
             <div className='card'>
-                <div>
-                    <img src={Burger} alt='burger'/>
+                <div className='card_img4'>
+                    <img className='card_img' src={Burger} alt='burger'/>
                 </div>
                 <div>
                     <p className='values'>Test</p>
