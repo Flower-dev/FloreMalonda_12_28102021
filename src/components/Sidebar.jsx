@@ -64,7 +64,7 @@ export default function Sidebar() {
         </div>
       </div>
     
-      <div >
+      <div>
         <Switch>
           {routes.map((route, index) => (
             <Route

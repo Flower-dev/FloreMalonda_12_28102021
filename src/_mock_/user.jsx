@@ -1,8 +1,6 @@
-// utils
 // 
 import mock from './mock';
 // ------------------------
-
 mock.onGet('/api/user/profile').reply(() => {
     const profile = {
         id: 12,

@@ -12,14 +12,9 @@ ENV NODE_OPTIONS=--openssl-legacy-provider
 ENV CHOKIDAR_USEPOLLING=true
 
 # install app dependencies
-COPY package.json ./
-RUN npm install --silent
-RUN npm install react-scripts -g --silent
-RUN npm install node-sass
-RUN npm install recharts
-RUN npm install axios
-# add app
 COPY . ./
+RUN npm install --silent
+
 
 # start app
 CMD ["npm", "start"]
