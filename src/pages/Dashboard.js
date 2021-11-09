@@ -12,7 +12,7 @@ import '../custom/pages/dashboard.scss';
 
 // ---------------------------------
 
-export default function Home() {
+export default function Dashboard() {
     const { get } = useApi();
     const [user, setUser] = useState([]);
 
