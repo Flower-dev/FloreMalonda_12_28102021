@@ -4,7 +4,7 @@ import Flame from '../../assets/icons/flame.svg';
 import Burger from '../../assets/icons/burger.svg';
 import Chicken from '../../assets/icons/chicken.svg';
 // custom
-import '../../custom/home/card.scss';
+import '../../custom/dashboard/card.scss';
 
 
 export default function Card() {

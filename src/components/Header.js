@@ -7,7 +7,7 @@ import {
 // style
 import '../custom/header.scss';
 // views
-import Home from '../pages/Home';
+import Dashboard from '../pages/Dashboard';
 // assets
 
 
@@ -33,7 +33,7 @@ export default function Header () {
 
           <Switch>
             <Route exact path='/'>
-              <Home />
+              <Dashboard />
             </Route>
           </Switch>
       </Router>

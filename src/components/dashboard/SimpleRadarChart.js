@@ -31,7 +31,7 @@ export default function SimpleRadarChart() {
 
     return (
      
-      <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
+      <RadarChart cx="50%" cy="50%" width={500} height={300} outerRadius="80%" data={data}>
         <PolarGrid />
         <PolarAngleAxis dataKey="subject" />
         <PolarRadiusAxis />
