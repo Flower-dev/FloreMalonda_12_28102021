@@ -32,7 +32,7 @@ export default function Card() {
                     <img className='card_img' src={Flame} alt='flame'/>
                 </div>
                 <div>
-                    <p className='values'>{score.calorieCount}</p>
+                    <p className='values'>{score.calorieCount}kCal</p>
                     <p className='items'>Calories</p>
                 </div>
             </div>
@@ -41,7 +41,7 @@ export default function Card() {
                     <img className='card_img' src={Chicken} alt='chicken'/>
                 </div>
                 <div>
-                    <p className='values'>{score.proteinCount}</p>
+                    <p className='values'>{score.proteinCount}g</p>
                     <p className='items'>Protéines</p>
                 </div>
             </div>
@@ -50,7 +50,7 @@ export default function Card() {
                     <img className='card_img' src={Apple} alt='apple'/>
                 </div>
                 <div>
-                    <p className='values'>{score.carbohydrateCount}</p>
+                    <p className='values'>{score.carbohydrateCount}g</p>
                     <p className='items'>Glucides</p>
                 </div>
             </div>
@@ -59,7 +59,7 @@ export default function Card() {
                     <img className='card_img' src={Burger} alt='burger'/>
                 </div>
                 <div>
-                    <p className='values'>{score.lipidCount}</p>
+                    <p className='values'>{score.lipidCount}g</p>
                     <p className='items'>Lipides</p>
                 </div>
             </div>

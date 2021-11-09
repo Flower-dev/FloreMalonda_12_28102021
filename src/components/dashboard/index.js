@@ -1,3 +1,3 @@
 export { default as Card } from './Card';
-export { default as RadialChart } from './RadialChart';
-export { default as SimpleRadarChart } from './SimpleRadarChart';
+export { default as Score } from './ScoreChart';
+export { default as PerformanceChart } from './PerformanceChart';

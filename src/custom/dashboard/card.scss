@@ -10,7 +10,7 @@
         align-items: center;
         justify-content: space-around;
         width: 258px;
-        height: 124px;
+        height: 110px;
         background: #FBFBFB;
         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
         border-radius: 5px;
@@ -54,6 +54,18 @@
             background: rgba(253, 81, 129, 0.1);
             mix-blend-mode: normal;
             border-radius: 6px;
+        }
+        .values {
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 14px;
+        }
+        .items {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 24px;
+            color: #74798C;  
         }
     }
 }
