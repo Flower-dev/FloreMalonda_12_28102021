@@ -20,13 +20,13 @@ export default function PerformanceChart() {
   // TO DO : modifier la partie ID
   
   useEffect(() => {
-  async function getScoreIntensity(id) {
+  async function getScorePerformance(id) {
     await get(`/user/${id}/performance`).then((response) => {
         setPerformance(response.data.data)
       }
     );
   }
-  getScoreIntensity(18); // A modifier pour ID
+  getScorePerformance(18); // A modifier pour ID
 }, [])// eslint-disable-line;
 
     return (

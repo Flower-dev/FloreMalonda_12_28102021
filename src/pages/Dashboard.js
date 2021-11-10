@@ -4,6 +4,7 @@ import useApi from '../hooks/useApi';
 import {
     Card, 
     PerformanceChart,
+    ActivityChart,
     Score
 } from '../components/dashboard/index';
 // custom
@@ -36,9 +37,12 @@ export default function Dashboard() {
             </div>
             <div className='chart_container'>
                 <div className='section_chart'>
-                    <div class='section2'>
+                    <div className='section1'>
+                        <ActivityChart />
+                    </div> 
+                    <div className='section2'>
                         <PerformanceChart />
-                        <Score/>
+                        {/* <Score/> */}
                     </div>
                 </div>
                 <div className='card_container'>
