@@ -25,9 +25,8 @@
         .card_img1 {
             width: 60px;
             height: 60px;
-            background: #FF0000;
+            background: rgba(255,0,0, 0.1);
             mix-blend-mode: normal;
-            opacity: 0.07;
             border-radius: 6px;
         }
 
@@ -42,9 +41,8 @@
         .card_img3 {
             width: 60px;
             height: 60px;
-            background:#F9CE23;
+            background:rgba(249,206,35, 0.1);
             mix-blend-mode: normal;
-            opacity: 0.07;
             border-radius: 6px;
         }
 
