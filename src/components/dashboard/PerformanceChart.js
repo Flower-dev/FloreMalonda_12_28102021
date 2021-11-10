@@ -7,9 +7,11 @@ import {
     PolarGrid, 
     PolarAngleAxis, 
     PolarRadiusAxis,
+    ResponsiveContainer,
+    Radar as RadarRecharts,
 } from 'recharts';
 // custom
-import '../../custom/dashboard/intensityChart.scss';
+import '../../custom/dashboard/performanceChart.scss';
 
 export default function PerformanceChart() {
   const { get } = useApi();
@@ -20,7 +22,7 @@ export default function PerformanceChart() {
   useEffect(() => {
   async function getScoreIntensity(id) {
     await get(`/user/${id}/performance`).then((response) => {
-                  setPerformance(response.data.data)
+        setPerformance(response.data.data)
       }
     );
   }
@@ -30,16 +32,21 @@ export default function PerformanceChart() {
     return (
       <div className='intensity'>
         <div className='title-intensity'>
-          <h3>Intensité</h3>
+          <p>Intensité</p>
         </div>
-        <div className='chart-intensity'>
-          <RadarChart cx='50%' cy='50%' width={500} height={300} outerRadius='80%' data={performance.data}>
-            <PolarGrid />
-            <PolarAngleAxis dataKey={performance.kind} />
-            <PolarRadiusAxis />
-            <Radar name='intensity' dataKey={performance.value} stroke='#8884d8' fill='#8884d8' fillOpacity={0.6} />
+        <ResponsiveContainer width="100%" height="100%">
+          <RadarChart cx="60" outerRadius="70" innerRadius="5%" data={performance.data}>
+            <PolarGrid radialLines={false} />
+            <PolarAngleAxis
+              dataKey="activity"
+              stroke="white"
+              axisLine={false}
+              tickLine={false}
+              tickSize={12}
+            />
+            <RadarRecharts dataKey="value" fill="red" fillOpacity={0.8} />
           </RadarChart>
-        </div>
+        </ResponsiveContainer>
       </div>
     );
 }
