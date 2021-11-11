@@ -37,10 +37,10 @@ export default function ScoreChart() {
         <Pie
             data={data}
             cx={120}
-            cy={300}
+            cy={100}
             innerRadius={60}
             outerRadius={80}
-            fill="#8884d8"
+            fill="#FF0000"
             paddingAngle={360 - 360 * score}
             dataKey="value"
         >
