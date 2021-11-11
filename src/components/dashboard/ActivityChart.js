@@ -21,13 +21,13 @@ export default function ActivityChart () {
     // TO DO : modifier la partie ID
     
     useEffect(() => {
-    async function getScoreIntensity(id) {
-      await get(`/user/${id}/performance`).then((response) => {
+    async function getScoreActivity(id) {
+      await get(`/user/${id}/activity`).then((response) => {
           setActivity(response.data.session)
         }
       );
     }
-    getScoreIntensity(18); // A modifier pour ID
+    getScoreActivity(18); // A modifier pour ID
   }, [])// eslint-disable-line;
 
     const dayFormatter = (date) => {
@@ -35,33 +35,24 @@ export default function ActivityChart () {
         return day;
     };
 
-    const CustomTooltip = ({ active, payload }) => {
+    const CustomTooltip = ({ active, activity }) => {
         if (active) {
-        return (
-            <div className="custom-tooltip">
-            <p>{payload[0].payload.kilogram + "kg"}</p>
-            <p>{payload[0].payload.calories + "Kcal"}</p>
-            </div>
-        );
-        }
-
-        return null;
+            return (
+                <div className="custom-tooltip">
+                <p>{activity.kilogram + "kg"}</p>
+                <p>{activity.calories + "Kcal"}</p>
+                </div>
+            );
+        } return null;
     };
 
-    /**
-     * @param   {number} 	x        horizontal axis ref
-     * @param   {number} 	y        vertical axis ref
-     * @param   {number} 	height   height of background cursor
-     */
     const CustomCursor = ({ x, y, height }) => {
         return (
-        <Rectangle fill="#C4C4C480" x={x - 25} y={y} width={50} height={height} />
+            <Rectangle fill="#C4C4C480" x={x - 25} y={y} width={50} height={height} />
         );
     };
 
     return (
-        <div className="Activity">
-        <p>Activité quotidienne</p>
         <ResponsiveContainer width="100%" height="100%">
             <BarChart
             data={activity}
@@ -127,7 +118,6 @@ export default function ActivityChart () {
             />
             </BarChart>
         </ResponsiveContainer>
-        </div>
     );
 };
 

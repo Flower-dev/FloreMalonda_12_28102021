@@ -38,11 +38,40 @@ export default function Dashboard() {
             <div className='chart_container'>
                 <div className='section_chart'>
                     <div className='section1'>
-                        <ActivityChart />
+                        <div className='acti'>
+                            <div className='title-acti'>
+                                <p>Activité quotidienne</p>
+                            </div>
+                            <div className='chart-acti'>  
+                                <ActivityChart />
+                            </div>
+                        </div>
                     </div> 
                     <div className='section2'>
-                        <PerformanceChart />
-                        {/* <Score/> */}
+                        <div className='sess'>
+                            <div className='title-sess'>
+                                <p>Durée moyenne des sessions</p>
+                            </div>
+                            <div className='chart-sess'>
+                                
+                            </div>
+                        </div>
+                        <div className='perf'>
+                            <div className='title-perf'>
+                                <p>Intensité</p>
+                            </div>
+                            <div className='chart-perf'>
+                                <PerformanceChart />
+                            </div>
+                        </div>
+                        <div className='sco'>
+                            <div className='title-sco'>
+                                <p>Score</p>
+                            </div>
+                            <div className='chart-sco'>
+                                 <Score/>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className='card_container'>

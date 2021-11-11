@@ -18,11 +18,26 @@ export default function PerformanceChart() {
   const [performance, setPerformance] = useState([]);
 
   // TO DO : modifier la partie ID
-  
+ 
   useEffect(() => {
   async function getScorePerformance(id) {
     await get(`/user/${id}/performance`).then((response) => {
-        setPerformance(response.data.data)
+
+      //{"data":{"userId":18,
+      //    "kind":{"1":"cardio","2":"energy","3":"endurance","4":"strength","5":"speed","6":"intensity"},
+      //    "data":[{"value":200,"kind":1},{"value":240,"kind":2},{"value":80,"kind":3},{"value":80,"kind":4},{"value":220,"kind":5},{"value":110,"kind":6}]}}
+      var tmp = response.data.data.data
+      var kind = response.data.data.kind
+
+      // new tab with new value
+      const tmp2 = tmp.map(perf => {
+        // perf.kind = "kind":1 
+        //kind[perf.kind.toString()] = dans tab kind remplacer par index correspondant 
+        perf.kind = kind[perf.kind.toString()]
+        return perf
+      })
+
+      setPerformance(tmp2)
       }
     );
   }
@@ -30,23 +45,17 @@ export default function PerformanceChart() {
 }, [])// eslint-disable-line;
 
     return (
-      <div className='intensity'>
-        <div className='title-intensity'>
-          <p>Intensité</p>
-        </div>
-        <ResponsiveContainer width="100%" height="100%">
-          <RadarChart cx="60" outerRadius="70" innerRadius="5%" data={performance.data}>
-            <PolarGrid radialLines={false} />
-            <PolarAngleAxis
-              dataKey="activity"
-              stroke="white"
-              axisLine={false}
-              tickLine={false}
-              tickSize={12}
-            />
-            <RadarRecharts dataKey="value" fill="red" fillOpacity={0.8} />
-          </RadarChart>
-        </ResponsiveContainer>
-      </div>
+      <RadarChart cx="60" outerRadius="70" innerRadius="5%" width={500} height={500} data={performance}>
+        <PolarGrid radialLines={false} />
+        <PolarAngleAxis
+          dataKey="kind"
+          stroke="white"
+          axisLine={false}
+          tickLine={false}
+          tickSize={12}
+        />
+        <RadarRecharts dataKey='value' fill="red" fillOpacity={0.8} />
+      </RadarChart>
+
     );
 }
