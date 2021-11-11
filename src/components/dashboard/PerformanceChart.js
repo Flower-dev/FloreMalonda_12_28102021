@@ -29,10 +29,10 @@ export default function PerformanceChart() {
       var tmp = response.data.data.data
       var kind = response.data.data.kind
 
-      // new tab with new value
+      // créer un tableau tpm2 qui parcours le tableau tpm contenant les données data
+      // perf.kind correspond à "kind":1 dans data et parcourir le tableau kind pour remplacer 
+      // la valeur chiffrée par son nom 
       const tmp2 = tmp.map(perf => {
-        // perf.kind = "kind":1 
-        //kind[perf.kind.toString()] = dans tab kind remplacer par index correspondant 
         perf.kind = kind[perf.kind.toString()]
         return perf
       })
