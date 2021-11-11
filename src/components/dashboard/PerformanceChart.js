@@ -2,12 +2,9 @@ import { useEffect, useState } from 'react';
 import useApi from '../../hooks/useApi';
 // components
 import { 
-    Radar, 
     RadarChart, 
     PolarGrid, 
     PolarAngleAxis, 
-    PolarRadiusAxis,
-    ResponsiveContainer,
     Radar as RadarRecharts,
 } from 'recharts';
 // custom
@@ -17,7 +14,7 @@ export default function PerformanceChart() {
   const { get } = useApi();
   const [performance, setPerformance] = useState([]);
 
-  // TO DO : modifier la partie ID
+  // TODO : modifier la partie ID
  
   useEffect(() => {
   async function getScorePerformance(id) {
