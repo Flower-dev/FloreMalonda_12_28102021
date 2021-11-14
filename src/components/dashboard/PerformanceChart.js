@@ -44,7 +44,7 @@ export default function PerformanceChart() {
     return (
       <RadarChart 
         cx='135' 
-        cy='100' 
+        cy='135' 
         outerRadius='70' 
         innerRadius='5%' 
         width={500} 
@@ -61,6 +61,5 @@ export default function PerformanceChart() {
         />
         <RadarRecharts dataKey='value' fill='red' fillOpacity={0.8} />
       </RadarChart>
-
     );
 }

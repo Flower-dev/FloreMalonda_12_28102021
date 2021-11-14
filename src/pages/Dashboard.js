@@ -43,7 +43,7 @@ export default function Dashboard() {
                                 <p>Activité quotidienne</p>
                             </div>
                             <div className='chart-acti'>  
-                                <ActivityChart />
+                                
                             </div>
                         </div>
                     </div> 
@@ -53,13 +53,10 @@ export default function Dashboard() {
                                 <p>Durée moyenne des sessions</p>
                             </div>
                             <div className='chart-sess'>
-                                
+                                <ActivityChart />
                             </div>
                         </div>
                         <div className='perf'>
-                            <div className='title-perf'>
-                                <p>Intensité</p>
-                            </div>
                             <div className='chart-perf'>
                                 <PerformanceChart />
                             </div>

@@ -16,26 +16,26 @@ import {
 
 export default function ActivityChart () {
     const { get } = useApi();
-    const [activity, setActivity] = useState([]);
+    const [averageSession, setAverageSession] = useState([]);
   
     // TO DO : modifier la partie ID
     
     useEffect(() => {
-    async function getScoreActivity(id) {
-      await get(`/user/${id}/activity`).then((response) => {
-          setActivity(response.data.session)
+    async function getAverageSession(id) {
+        await get(`/user/${id}/average-sessions`).then((response) => {
+            setAverageSession(response.data.sessions)
         }
       );
     }
-    getScoreActivity(18); // A modifier pour ID
+    getAverageSession(18); // A modifier pour ID
   }, [])// eslint-disable-line;
 
-    const dayFormatter = (date) => {
+    function dayFormatter(date) {
         const day = new Date(date).getDate();
         return day;
     };
 
-    const CustomTooltip = ({ active, activity }) => {
+    function CustomTooltip({ active, activity }) {
         if (active) {
             return (
                 <div className="custom-tooltip">
@@ -46,21 +46,21 @@ export default function ActivityChart () {
         } return null;
     };
 
-    const CustomCursor = ({ x, y, height }) => {
+    function CustomCursor({ x, y, height }) {
         return (
             <Rectangle fill="#C4C4C480" x={x - 25} y={y} width={50} height={height} />
         );
     };
 
     return (
-        <ResponsiveContainer width="100%" height="100%">
-            <BarChart
-            data={activity}
+       
+        <BarChart
+            data={averageSession}
             barGap={10}
             margin={{ top: 100, left: 50, right: 20 }}
             with={500}
             height={200}
-            >
+        >
             <CartesianGrid strokeDasharray="2" vertical={false} />
             <XAxis
                 tickLine={false}
@@ -116,8 +116,7 @@ export default function ActivityChart () {
                 dataKey="calories"
                 fill="#E60000"
             />
-            </BarChart>
-        </ResponsiveContainer>
+        </BarChart>
     );
 };
 

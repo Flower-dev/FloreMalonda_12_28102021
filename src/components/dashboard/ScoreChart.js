@@ -4,9 +4,7 @@ import useApi from '../../hooks/useApi';
 import { 
     PieChart, 
     Pie, 
-    Sector, 
-    Cell,
-    ResponsiveContainer 
+    Cell
 } from 'recharts';
 
 
