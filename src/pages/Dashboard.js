@@ -5,7 +5,8 @@ import {
     Card, 
     PerformanceChart,
     ActivityChart,
-    Score
+    Score, 
+    PoidsChart
 } from '../components/dashboard/index';
 // custom
 import '../custom/pages/dashboard.scss';
@@ -43,7 +44,7 @@ export default function Dashboard() {
                                 <p>Activité quotidienne</p>
                             </div>
                             <div className='chart-acti'>  
-                                
+                                <PoidsChart />
                             </div>
                         </div>
                     </div> 
@@ -66,7 +67,7 @@ export default function Dashboard() {
                                 <p>Score</p>
                             </div>
                             <div className='chart-sco'>
-                                 <Score/>
+                                 <Score />
                             </div>
                         </div>
                     </div>
