@@ -17,6 +17,7 @@ import '../custom/pages/dashboard.scss';
 export default function Dashboard() {
     const { get } = useApi();
     const [user, setUser] = useState([]);
+    const [performance, setPerformance] = useState([]);
 
     // TO DO : modifier la partie ID
     
@@ -29,6 +30,31 @@ export default function Dashboard() {
 		}
 		getUserProfile(18); // A modifier pour ID
 	}, [])// eslint-disable-line;
+
+
+    // TODO : modifier la partie ID
+   
+    useEffect(() => {
+    async function getScorePerformance(id) {
+      await get(`/user/${id}/performance`).then((response) => {
+  
+        var tmp = response.data.data.data
+        var kind = response.data.data.kind
+  
+        // créer un tableau tpm2 qui parcours le tableau tpm contenant les données data
+        // perf.kind correspond à 'kind':1 dans data et parcourir le tableau kind pour remplacer 
+        // la valeur chiffrée par son nom 
+        const tmp2 = tmp.map(perf => {
+          perf.kind = kind[perf.kind.toString()]
+          return perf
+        })
+  
+        setPerformance(tmp2)
+        }
+      );
+    }
+    getScorePerformance(18); // A modifier pour ID
+  }, [])// eslint-disable-line;
 
     return (
         <div className='container'>
@@ -59,7 +85,7 @@ export default function Dashboard() {
                         </div>
                         <div className='perf'>
                             <div className='chart-perf'>
-                                <PerformanceChart />
+                                <PerformanceChart data={performance}/>
                             </div>
                         </div>
                         <div className='sco'>
