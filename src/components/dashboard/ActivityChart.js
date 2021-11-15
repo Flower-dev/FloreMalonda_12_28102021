@@ -10,7 +10,6 @@ import {
   YAxis,
   Rectangle,
   CartesianGrid,
-  ResponsiveContainer,
 } from "recharts";
 
 

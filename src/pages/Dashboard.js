@@ -18,9 +18,8 @@ export default function Dashboard() {
     const { get } = useApi();
     const [user, setUser] = useState([]);
     const [performance, setPerformance] = useState([]);
+    const [activityScore, setActivityScore] = useState([]);
 
-    // TO DO : modifier la partie ID
-    
     useEffect(() => {
 		async function getUserProfile(id) {
 			await get(`/user/${id}`).then((response) => {
@@ -31,9 +30,6 @@ export default function Dashboard() {
 		getUserProfile(18); // A modifier pour ID
 	}, [])// eslint-disable-line;
 
-
-    // TODO : modifier la partie ID
-   
     useEffect(() => {
     async function getScorePerformance(id) {
       await get(`/user/${id}/performance`).then((response) => {
@@ -55,6 +51,18 @@ export default function Dashboard() {
     }
     getScorePerformance(18); // A modifier pour ID
   }, [])// eslint-disable-line;
+
+
+    useEffect(() => {
+    async function getScoreValue(id) {
+        await get(`/user/${id}`).then((response) => {
+            setActivityScore(response.data.data.score)
+        }
+        );
+    }
+    getScoreValue(18); // A modifier pour ID
+    }, [])// eslint-disable-line;
+
 
     return (
         <div className='container'>
@@ -93,7 +101,7 @@ export default function Dashboard() {
                                 <p>Score</p>
                             </div>
                             <div className='chart-sco'>
-                                 <Score />
+                                 <Score data={activityScore}/>
                             </div>
                         </div>
                     </div>
