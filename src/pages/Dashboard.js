@@ -1,4 +1,6 @@
+// react
 import { useEffect, useState } from 'react';
+// hook
 import useApi from '../hooks/useApi';
 // components
 import {
@@ -10,66 +12,68 @@ import {
 // custom
 import '../custom/pages/dashboard.scss';
 
-
 // ---------------------------------
 
 export default function Dashboard() {
+
+    // ---------- HOOK ----------------
+
     const { get } = useApi();
+
+    // ------------ STATE -------------
+
     const [user, setUser] = useState([]);
     const [performance, setPerformance] = useState([]);
     const [activityScore, setActivityScore] = useState([]);
     const [count, setCount] = useState([]);
     const [activityCount, setActivityCount]  = useState([]);
 
+    // ------------ API CALL ----------
+
     useEffect(() => {
 		async function getUserProfile(id) {
 			await get(`/user/${id}`).then((response) => {
-                    setUser(response.data.data.userInfos)
-				}
-			);
+                setUser(response.data.data.userInfos)
+	        });
 		}
-		getUserProfile(18); // A modifier pour ID
+		getUserProfile(18);
 	}, [])// eslint-disable-line;
 
     useEffect(() => {
 		async function getUserCount(id) {
 			await get(`/user/${id}`).then((response) => {
-                    setCount(response.data.data.keyData)
-				}
-			);
+                setCount(response.data.data.keyData)
+			});
 		}
 		getUserCount(18); 
 	}, [])// eslint-disable-line;
 
     useEffect(() => {
-    async function getScorePerformance(id) {
-      await get(`/user/${id}/performance`).then((response) => {
-  
-        var tmp = response.data.data.data
-        var kind = response.data.data.kind
-  
-        // créer un tableau tpm2 qui parcours le tableau tpm contenant les données data
-        // perf.kind correspond à 'kind':1 dans data et parcourir le tableau kind pour remplacer 
-        // la valeur chiffrée par son nom 
-        const tmp2 = tmp.map(perf => {
-          perf.kind = kind[perf.kind.toString()]
-          return perf
-        })
-  
-        setPerformance(tmp2)
+        async function getScorePerformance(id) {
+            await get(`/user/${id}/performance`).then((response) => {
+                var tmp = response.data.data.data
+                var kind = response.data.data.kind
+        
+                // créer un tableau tpm2 qui parcours le tableau tpm contenant les données data
+                // perf.kind correspond à 'kind':1 dans data et parcourir le tableau kind pour remplacer 
+                // la valeur chiffrée par son nom 
+                const tmp2 = tmp.map(perf => {
+                perf.kind = kind[perf.kind.toString()]
+                return perf
+                })
+        
+                setPerformance(tmp2)
+            });
         }
-      );
-    }
         getScorePerformance(18);
     }, [])// eslint-disable-line;
 
     useEffect(() => {
-    async function getScoreValue(id) {
-        await get(`/user/${id}`).then((response) => {
-            setActivityScore(response.data.data.todayScore)
+        async function getScoreValue(id) {
+            await get(`/user/${id}`).then((response) => {
+                setActivityScore(response.data.data.todayScore)
+            });
         }
-        );
-    }
         getScoreValue(18);
     }, [])// eslint-disable-line;
 
@@ -77,10 +81,9 @@ export default function Dashboard() {
         async function getScoreActivityValue(id) {
             await get(`/user/${id}/activity`).then((response) => {
                 setActivityCount(response.data.data.sessions)
-            }
-            );
+            });
         }
-            getScoreActivityValue(18);
+        getScoreActivityValue(18);
     }, [])
 
     return (
@@ -127,8 +130,7 @@ export default function Dashboard() {
                 <div className='card_container'>
                     <Card key='cards' data={count}/>
                 </div>
-            </div>
-            
+            </div> 
         </div>
     )
 }

@@ -18,6 +18,7 @@ function dayFormatter(date) {
   return day;
 };
 
+// custom tooltip
 // function CustomTooltip({ active }) {
 //   if (active) {
 //       return (
@@ -29,6 +30,7 @@ function dayFormatter(date) {
 //   } return null;
 // };
 
+//custom cursor
 // function CustomCursor({ x, y, height }) {
 //   return (
 //       <Rectangle fill='#C4C4C480' x={x - 25} y={y} width={50} height={height} />
