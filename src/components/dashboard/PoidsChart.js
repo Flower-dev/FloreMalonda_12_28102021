@@ -1,4 +1,4 @@
-// ---- IMPORT -------
+// recharts
 import { 
   BarChart, 
   Bar, 

@@ -1,12 +1,12 @@
-// components
+// recharts
 import { 
     RadarChart, 
     PolarGrid, 
     PolarAngleAxis, 
     Radar as RadarRecharts,
 } from 'recharts';
-// custom
-import '../../custom/dashboard/performanceChart.scss';
+
+// -----------------------------------------
 
 export default function PerformanceChart({data}) {
 
@@ -26,7 +26,7 @@ export default function PerformanceChart({data}) {
           stroke='white'
           axisLine={false}
           tickLine={false}
-          tickSize={12}
+          tickSize={10}
         />
         <RadarRecharts dataKey='value' fill='red' fillOpacity={0.8} />
       </RadarChart>
