@@ -20,6 +20,7 @@ export default function Dashboard() {
     const [performance, setPerformance] = useState([]);
     const [activityScore, setActivityScore] = useState([]);
     const [count, setCount] = useState([]);
+    const [activityCount, setActivityCount]  = useState([]);
 
     useEffect(() => {
 		async function getUserProfile(id) {
@@ -41,7 +42,6 @@ export default function Dashboard() {
 		getUserCount(18); 
 	}, [])// eslint-disable-line;
 
-
     useEffect(() => {
     async function getScorePerformance(id) {
       await get(`/user/${id}/performance`).then((response) => {
@@ -61,20 +61,28 @@ export default function Dashboard() {
         }
       );
     }
-    getScorePerformance(18);
-  }, [])// eslint-disable-line;
-
+        getScorePerformance(18);
+    }, [])// eslint-disable-line;
 
     useEffect(() => {
     async function getScoreValue(id) {
         await get(`/user/${id}`).then((response) => {
-            setActivityScore(response.data.data.score)
+            setActivityScore(response.data.data.todayScore)
         }
         );
     }
-    getScoreValue(18);
+        getScoreValue(18);
     }, [])// eslint-disable-line;
 
+    useEffect(() => {
+        async function getScoreActivityValue(id) {
+            await get(`/user/${id}/activity`).then((response) => {
+                setActivityCount(response.data.data.sessions)
+            }
+            );
+        }
+            getScoreActivityValue(18);
+    }, [])
 
     return (
         <div className='container'>
@@ -90,7 +98,7 @@ export default function Dashboard() {
                                 <p>Activité quotidienne</p>
                             </div>
                             <div className='chart-acti'>  
-                                <PoidsChart />
+                                <PoidsChart data={activityCount}/>
                             </div>
                         </div>
                     </div> 
