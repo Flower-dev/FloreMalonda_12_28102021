@@ -7,7 +7,8 @@ import {
     Card, 
     PerformanceChart,
     Score, 
-    PoidsChart
+    PoidsChart, 
+    LineGraph
 } from '../components/dashboard/index';
 // custom
 import '../custom/pages/dashboard.scss';
@@ -110,6 +111,7 @@ export default function Dashboard() {
                                 <p>Durée moyenne des sessions</p>
                             </div>
                             <div className='chart-sess'>
+                                <LineGraph />
                             </div>
                         </div>
                         <div className='perf'>

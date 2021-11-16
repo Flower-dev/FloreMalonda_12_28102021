@@ -17,11 +17,11 @@ export default function ScoreChart({data}) {
             cy={100}
             innerRadius={60}
             outerRadius={80}
-            fill='#F00000'
+            fill='#E60000'
             paddingAngle={360 - 360 * data}
             dataKey='value'
         >
-          <Cell key='value' fill='#F000000' />
+          <Cell key='data' fill='#E60000' />
         </Pie>
       </PieChart>
 
