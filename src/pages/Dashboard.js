@@ -4,7 +4,6 @@ import useApi from '../hooks/useApi';
 import {
     Card, 
     PerformanceChart,
-    ActivityChart,
     Score, 
     PoidsChart
 } from '../components/dashboard/index';
@@ -108,7 +107,6 @@ export default function Dashboard() {
                                 <p>Durée moyenne des sessions</p>
                             </div>
                             <div className='chart-sess'>
-                                <ActivityChart />
                             </div>
                         </div>
                         <div className='perf'>
