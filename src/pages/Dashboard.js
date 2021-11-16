@@ -19,6 +19,7 @@ export default function Dashboard() {
     const [user, setUser] = useState([]);
     const [performance, setPerformance] = useState([]);
     const [activityScore, setActivityScore] = useState([]);
+    const [count, setCount] = useState([]);
 
     useEffect(() => {
 		async function getUserProfile(id) {
@@ -29,6 +30,17 @@ export default function Dashboard() {
 		}
 		getUserProfile(18); // A modifier pour ID
 	}, [])// eslint-disable-line;
+
+    useEffect(() => {
+		async function getUserCount(id) {
+			await get(`/user/${id}`).then((response) => {
+                    setCount(response.data.data.keyData)
+				}
+			);
+		}
+		getUserCount(18); 
+	}, [])// eslint-disable-line;
+
 
     useEffect(() => {
     async function getScorePerformance(id) {
@@ -49,7 +61,7 @@ export default function Dashboard() {
         }
       );
     }
-    getScorePerformance(18); // A modifier pour ID
+    getScorePerformance(18);
   }, [])// eslint-disable-line;
 
 
@@ -60,7 +72,7 @@ export default function Dashboard() {
         }
         );
     }
-    getScoreValue(18); // A modifier pour ID
+    getScoreValue(18);
     }, [])// eslint-disable-line;
 
 
@@ -107,7 +119,7 @@ export default function Dashboard() {
                     </div>
                 </div>
                 <div className='card_container'>
-                    <Card key='cards'/>
+                    <Card key='cards' data={count}/>
                 </div>
             </div>
             
