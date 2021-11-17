@@ -123,9 +123,6 @@ export default function Dashboard() {
           </div>
           <div className="section2">
             <div className="sess">
-              <div className="title-sess">
-                <p>Durée moyenne des sessions</p>
-              </div>
               <div className="chart-sess">
                 <SessionChart data={averageSessionsCount}/>
               </div>

@@ -16,11 +16,11 @@ export default function SessionChart({data}) {
     return <p className="custom-legend">Durée moyenne des sessions</p>;
   };
 
-  function CustomTooltip({ active, payload }) {
+  function CustomTooltip({ active }) {
     if (active) {
       return (
         <div className="custom-tooltip">
-          <p className="label">{payload[0].value + " min"}</p>
+          <p className="label">{ "données à compléter min"}</p>
         </div>
       );
     }
@@ -57,7 +57,11 @@ export default function SessionChart({data}) {
   };
 
   return (
-    <LineChart data={data}>
+    <LineChart 
+      width={250}
+      height={300}
+      data={data}
+    >
       <Legend
         content={<CustomizedLegend />}
         wrapperStyle={{
