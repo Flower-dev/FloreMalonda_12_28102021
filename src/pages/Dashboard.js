@@ -25,11 +25,13 @@ export default function Dashboard() {
   const [user, setUser] = useState([]);
   const [performance, setPerformance] = useState([]);
   const [activityScore, setActivityScore] = useState([]);
-  const [count, setCount] = useState([]);
+  const [userCount, setUserCount] = useState([]);
   const [activityCount, setActivityCount] = useState([]);
+  const [averageSessionsCount, setAverageSessionsCount] = useState([]);
 
   // ------------ API CALL ----------
 
+  // api call for user informations (name)
   useEffect(() => {
     async function getUserProfile(id) {
       await get(`/user/${id}`).then((response) => {
@@ -39,10 +41,11 @@ export default function Dashboard() {
     getUserProfile(18);
   }, []); // eslint-disable-line;
 
+  // api call for cards (calorieCount, proteinCount, carbohydrateCount, lipidCount)
   useEffect(() => {
     async function getUserCount(id) {
       await get(`/user/${id}`).then((response) => {
-        setCount(response.data.data.keyData);
+        setUserCount(response.data.data.keyData);
       });
     }
     getUserCount(18);
@@ -86,6 +89,17 @@ export default function Dashboard() {
     getScoreActivityValue(18);
   }, []);
 
+  // Api call graph average sessions
+  useEffect(() => {
+    async function getAverageSessions(id) {
+      await get(`/user/${id}/average-sessions`).then((response) => {
+        setAverageSessionsCount(response.data.sessions);
+      });
+    }
+    getAverageSessions(18);
+  }, []);
+
+
   return (
     <div className="container">
       <div className="title_container">
@@ -114,7 +128,7 @@ export default function Dashboard() {
                 <p>Durée moyenne des sessions</p>
               </div>
               <div className="chart-sess">
-                <LineGraph />
+                <LineGraph data={averageSessionsCount}/>
               </div>
             </div>
             <div className="perf">
@@ -133,7 +147,7 @@ export default function Dashboard() {
           </div>
         </div>
         <div className="card_container">
-          <Card key="cards" data={count} />
+          <Card key="cards" data={userCount} />
         </div>
       </div>
     </div>
