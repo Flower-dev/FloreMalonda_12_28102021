@@ -39,7 +39,7 @@ function dayFormatter(date) {
 
 // -----------------------------
 
-export default function PoidsChart({data}){
+export default function ActivityChart({data}){
   return (
     <BarChart
       width={830}

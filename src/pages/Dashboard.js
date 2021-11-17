@@ -6,9 +6,9 @@ import useApi from "../hooks/useApi";
 import {
   Card,
   PerformanceChart,
-  Score,
-  PoidsChart,
-  LineGraph,
+  UserScoreChart,
+  ActivityChart,
+  SessionChart,
 } from "../components/dashboard/index";
 // custom
 import "../custom/pages/dashboard.scss";
@@ -23,9 +23,9 @@ export default function Dashboard() {
   // ------------ STATE -------------
 
   const [user, setUser] = useState([]);
-  const [performance, setPerformance] = useState([]);
-  const [activityScore, setActivityScore] = useState([]);
+  const [userScore, setUserScore] = useState([]);
   const [userCount, setUserCount] = useState([]);
+  const [performance, setPerformance] = useState([]);
   const [activityCount, setActivityCount] = useState([]);
   const [averageSessionsCount, setAverageSessionsCount] = useState([]);
 
@@ -43,38 +43,37 @@ export default function Dashboard() {
 
   // api call for cards (calorieCount, proteinCount, carbohydrateCount, lipidCount)
   useEffect(() => {
-    async function getUserCount(id) {
+    async function getUserCounts(id) {
       await get(`/user/${id}`).then((response) => {
         setUserCount(response.data.data.keyData);
       });
     }
-    getUserCount(18);
+    getUserCounts(18);
   }, []); // eslint-disable-line;
 
+  // api call for graph score
   useEffect(() => {
-    async function getScoreValue(id) {
+    async function getUserScore(id) {
       await get(`/user/${id}`).then((response) => {
-        setActivityScore(response.data.data.score);
+        setUserScore(response.data.data.score);
       });
     }
-    getScoreValue(18);
+    getUserScore(18);
   }, []); // eslint-disable-line;
 
+  // api call performance
   useEffect(() => {
     async function getScorePerformance(id) {
       await get(`/user/${id}/performance`).then((response) => {
-        var tmp = response.data.data.data;
+        var perfData = response.data.data.data;
         var kind = response.data.data.kind;
 
-        // créer un tableau tpm2 qui parcours le tableau tpm contenant les données data
-        // perf.kind correspond à 'kind':1 dans data et parcourir le tableau kind pour remplacer
-        // la valeur chiffrée par son nom
-        const tmp2 = tmp.map((perf) => {
+        const newPerfData = perfData.map((perf) => {
           perf.kind = kind[perf.kind.toString()];
           return perf;
         });
 
-        setPerformance(tmp2);
+        setPerformance(newPerfData);
       });
     }
     getScorePerformance(18);
@@ -89,7 +88,7 @@ export default function Dashboard() {
     getScoreActivityValue(18);
   }, []);
 
-  // Api call graph average sessions
+  // api call graph average sessions
   useEffect(() => {
     async function getAverageSessions(id) {
       await get(`/user/${id}/average-sessions`).then((response) => {
@@ -118,7 +117,7 @@ export default function Dashboard() {
                 <p>Activité quotidienne</p>
               </div>
               <div className="chart-acti">
-                <PoidsChart data={activityCount} />
+                <ActivityChart data={activityCount} />
               </div>
             </div>
           </div>
@@ -128,7 +127,7 @@ export default function Dashboard() {
                 <p>Durée moyenne des sessions</p>
               </div>
               <div className="chart-sess">
-                <LineGraph data={averageSessionsCount}/>
+                <SessionChart data={averageSessionsCount}/>
               </div>
             </div>
             <div className="perf">
@@ -141,7 +140,7 @@ export default function Dashboard() {
                 <p>Score</p>
               </div>
               <div className="chart-sco">
-                <Score data={activityScore} />
+                <UserScoreChart data={userScore} />
               </div>
             </div>
           </div>
