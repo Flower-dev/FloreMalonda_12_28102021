@@ -3,8 +3,6 @@ import {
   LineChart,
   Line,
   XAxis,
-  YAxis,
-  CartesianGrid,
   Tooltip,
   Legend,
 } from 'recharts';
@@ -16,11 +14,11 @@ export default function SessionChart({data}) {
     return <p className='custom-legend'>Durée moyenne des sessions</p>;
   };
 
-  function CustomTooltip({ active }) {
+  function CustomTooltip({ active, payload }) {
     if (active) {
       return (
         <div className='custom-tooltip'>
-          <p className='label'>{ 'données à compléter min'}</p>
+          <p className='label'>{ payload[0].value + ' min'}</p>
         </div>
       );
     }
