@@ -1,7 +1,7 @@
 // react
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 // hook
-import useApi from "../hooks/useApi";
+import useApi from '../hooks/useApi';
 // components
 import {
   Card,
@@ -9,9 +9,9 @@ import {
   UserScoreChart,
   ActivityChart,
   SessionChart,
-} from "../components/dashboard/index";
+} from '../components/dashboard/index';
 // custom
-import "../custom/pages/dashboard.scss";
+import '../custom/pages/dashboard.scss';
 
 // ---------------------------------
 
@@ -92,7 +92,7 @@ export default function Dashboard() {
   useEffect(() => {
     async function getAverageSessions(id) {
       await get(`/user/${id}/average-sessions`).then((response) => {
-        setAverageSessionsCount(response.data.sessions);
+        setAverageSessionsCount(response.data.data.sessions);
       });
     }
     getAverageSessions(18);
@@ -100,50 +100,50 @@ export default function Dashboard() {
 
 
   return (
-    <div className="container">
-      <div className="title_container">
-        <h1 className="title">
-          Bonjour <span className="title_name">{user.firstName}</span>
+    <div className='container'>
+      <div className='title_container'>
+        <h1 className='title'>
+          Bonjour <span className='title_name'>{user.firstName}</span>
         </h1>
-        <p className="text">
+        <p className='text'>
           Félicitation ! Vous avez explosé vos objectifs hier 👏🏻
         </p>
       </div>
-      <div className="chart_container">
-        <div className="section_chart">
-          <div className="section1">
-            <div className="acti">
-              <div className="title-acti">
+      <div className='chart_container'>
+        <div className='section_chart'>
+          <div className='section1'>
+            <div className='acti'>
+              <div className='title-acti'>
                 <p>Activité quotidienne</p>
               </div>
-              <div className="chart-acti">
+              <div className='chart-acti'>
                 <ActivityChart data={activityCount} />
               </div>
             </div>
           </div>
-          <div className="section2">
-            <div className="sess">
-              <div className="chart-sess">
+          <div className='section2'>
+            <div className='sess'>
+              <div className='chart-sess'>
                 <SessionChart data={averageSessionsCount}/>
               </div>
             </div>
-            <div className="perf">
-              <div className="chart-perf">
+            <div className='perf'>
+              <div className='chart-perf'>
                 <PerformanceChart data={performance} />
               </div>
             </div>
-            <div className="sco">
-              <div className="title-sco">
+            <div className='sco'>
+              <div className='title-sco'>
                 <p>Score</p>
               </div>
-              <div className="chart-sco">
+              <div className='chart-sco'>
                 <UserScoreChart data={userScore} />
               </div>
             </div>
           </div>
         </div>
-        <div className="card_container">
-          <Card key="cards" data={userCount} />
+        <div className='card_container'>
+          <Card key='cards' data={userCount} />
         </div>
       </div>
     </div>

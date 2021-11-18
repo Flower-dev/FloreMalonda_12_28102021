@@ -7,20 +7,20 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
-} from "recharts";
+} from 'recharts';
 
 
 export default function SessionChart({data}) {
 
   function CustomizedLegend() {
-    return <p className="custom-legend">Durée moyenne des sessions</p>;
+    return <p className='custom-legend'>Durée moyenne des sessions</p>;
   };
 
   function CustomTooltip({ active }) {
     if (active) {
       return (
-        <div className="custom-tooltip">
-          <p className="label">{ "données à compléter min"}</p>
+        <div className='custom-tooltip'>
+          <p className='label'>{ 'données à compléter min'}</p>
         </div>
       );
     }
@@ -30,25 +30,25 @@ export default function SessionChart({data}) {
   function dayFormatter(day) {
     switch (day) {
       case 1:
-        day = "L";
+        day = 'L';
         break;
       case 2:
-        day = "M";
+        day = 'M';
         break;
       case 3:
-        day = "M";
+        day = 'M';
         break;
       case 4:
-        day = "J";
+        day = 'J';
         break;
       case 5:
-        day = "V";
+        day = 'V';
         break;
       case 6:
-        day = "S";
+        day = 'S';
         break;
       case 7:
-        day = "D";
+        day = 'D';
         break;
       default:
         return day;
@@ -59,34 +59,34 @@ export default function SessionChart({data}) {
   return (
     <LineChart 
       width={250}
-      height={300}
+      height={500}
       data={data}
     >
       <Legend
         content={<CustomizedLegend />}
         wrapperStyle={{
-          top: 10,
+          top: 2,
           left: 10,
           fontSize: 15,
-          color: "white",
+          color: 'white',
           opacity: 0.5,
           width: 145,
         }}
       />
       <XAxis
-        dataKey="day"
+        dataKey='day'
         tickFormatter={dayFormatter}
         axisLine={false}
         tickLine={false}
         padding={{ left: 10, right: 10 }}
-        stroke="white"
-        tickMargin="10"
+        stroke='white'
+        tickMargin='-170'
       />
       <Line
         connectNulls
-        type="monotone"
-        dataKey="sessionLength"
-        stroke="#fff"
+        type='monotone'
+        dataKey='sessionLength'
+        stroke='#fff'
         activeDot={{ r: 8 }}
         strokeWidth={2}
         dot={false}
@@ -97,12 +97,12 @@ export default function SessionChart({data}) {
         wrapperStyle={{
           width: 40,
           height: 25,
-          color: "#000",
-          backgroundColor: "#fff",
+          color: '#000',
+          backgroundColor: '#fff',
           fontSize: 8,
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
         }}
       />
     </LineChart>
