@@ -5,6 +5,7 @@ import {
   XAxis,
   Tooltip,
   Legend,
+  ResponsiveContainer
 } from 'recharts';
 
 
@@ -55,55 +56,57 @@ export default function SessionChart({data}) {
   };
 
   return (
-    <LineChart 
-      width={250}
-      height={500}
-      data={data}
-    >
-      <Legend
-        content={<CustomizedLegend />}
-        wrapperStyle={{
-          top: 2,
-          left: 10,
-          fontSize: 15,
-          color: 'white',
-          opacity: 0.5,
-          width: 145,
-        }}
-      />
-      <XAxis
-        dataKey='day'
-        tickFormatter={dayFormatter}
-        axisLine={false}
-        tickLine={false}
-        padding={{ left: 10, right: 10 }}
-        stroke='white'
-        tickMargin='-170'
-      />
-      <Line
-        connectNulls
-        type='monotone'
-        dataKey='sessionLength'
-        stroke='#fff'
-        activeDot={{ r: 8 }}
-        strokeWidth={2}
-        dot={false}
-      />
-      <Tooltip
-        content={<CustomTooltip />}
-        cursor={false}
-        wrapperStyle={{
-          width: 40,
-          height: 25,
-          color: '#000',
-          backgroundColor: '#fff',
-          fontSize: 8,
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      />
-    </LineChart>
+    <ResponsiveContainer width='100%' height={510}>
+      <LineChart 
+        width={500}
+        height={200}
+        data={data}
+      >
+        <Legend
+          content={<CustomizedLegend />}
+          wrapperStyle={{
+            top: 2,
+            left: 10,
+            fontSize: 15,
+            color: 'white',
+            opacity: 0.5,
+            width: 145,
+          }}
+        />
+        <XAxis
+          dataKey='day'
+          tickFormatter={dayFormatter}
+          axisLine={false}
+          tickLine={false}
+          padding={{ left: 10, right: 10 }}
+          stroke='white'
+          tickMargin='-170'
+        />
+        <Line
+          connectNulls
+          type='monotone'
+          dataKey='sessionLength'
+          stroke='#fff'
+          activeDot={{ r: 8 }}
+          strokeWidth={2}
+          dot={false}
+        />
+        <Tooltip
+          content={<CustomTooltip />}
+          cursor={false}
+          wrapperStyle={{
+            width: 40,
+            height: 25,
+            color: '#000',
+            backgroundColor: '#fff',
+            fontSize: 8,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        />
+      </LineChart>
+    </ResponsiveContainer>
   );
 }
 

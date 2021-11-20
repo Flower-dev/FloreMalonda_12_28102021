@@ -12,7 +12,7 @@ import {
 export default function UserScoreChart({ data }) {
   const score = data;
   const percent = Math.round(score * 100);
-  const percircle = Math.round(score * 360);
+  const percircle = Math.round(score * 360 );
 
   const percentScore = [
     {
@@ -39,7 +39,7 @@ export default function UserScoreChart({ data }) {
       barSize={10}
       data={percentScore}
     >
-      <PolarAngleAxis range={[0, percircle]} type="number" tick={false} />
+      <PolarAngleAxis range={[180, percircle]} type="number" tick={false} />
       <RadialBar cornerRadius={50} dataKey="value" fill="#FF0000" />
       <Legend
         content={<CustomizedLegend />}
