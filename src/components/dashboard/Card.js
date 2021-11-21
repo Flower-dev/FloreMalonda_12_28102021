@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 // assets
 import Apple from '../../assets/icons/apple.svg';
 import Flame from '../../assets/icons/flame.svg';
@@ -50,3 +51,10 @@ export default function Card({data}) {
         </div>
     )
 }
+
+Card.propTypes = {
+    calorieCount: PropTypes.number,
+    proteinCount: PropTypes.number,
+    carbohydrateCount: PropTypes.number,
+    lipidCount: PropTypes.number
+};

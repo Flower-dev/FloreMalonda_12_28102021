@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 // recharts
 import { 
   RadialBarChart, 
@@ -51,6 +52,10 @@ export default function UserScoreChart({ data }) {
     </RadialBarChart>
   );
 }
+
+UserScoreChart.propTypes = {
+  data: PropTypes.array
+};
 
 
 

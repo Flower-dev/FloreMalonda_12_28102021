@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 // recharts
 import { 
   BarChart, 
@@ -116,3 +117,7 @@ export default function ActivityChart({data}){
     </ResponsiveContainer>
   );
 }
+
+ActivityChart.propTypes = {
+  data: PropTypes.array
+};

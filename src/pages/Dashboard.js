@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 // react
 import { useEffect, useState } from 'react';
 // hook
@@ -12,7 +13,6 @@ import {
 } from '../components/dashboard/index';
 // custom
 import '../custom/pages/dashboard.scss';
-
 // ---------------------------------
 
 export default function Dashboard() {
@@ -150,4 +150,8 @@ export default function Dashboard() {
     </div>
   );
 }
+
+Dashboard.propTypes = {
+  name: PropTypes.string
+};
 

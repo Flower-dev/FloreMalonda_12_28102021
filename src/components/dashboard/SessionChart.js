@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 // recharts
 import {
   LineChart,
@@ -109,6 +110,10 @@ export default function SessionChart({data}) {
     </ResponsiveContainer>
   );
 }
+
+SessionChart.propTypes = {
+  data: PropTypes.array
+};
 
 
 
