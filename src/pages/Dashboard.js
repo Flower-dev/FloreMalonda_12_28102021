@@ -25,9 +25,10 @@ export default function Dashboard() {
   const [user, setUser] = useState([]);
   const [userScore, setUserScore] = useState([]);
   const [userCount, setUserCount] = useState([]);
-  const [performance, setPerformance] = useState([]);
-  const [activityCount, setActivityCount] = useState([]);
-  const [averageSessionsCount, setAverageSessionsCount] = useState([]);
+  const [userPerformance, setUserPerformance] = useState([]);
+  const [userActivityCount, setUserActivityCount] = useState([]);
+  const [userAverageSessionsCount, setUserAverageSessionsCount] = useState([]);
+
 
   // ------------ API CALL ----------
 
@@ -63,7 +64,7 @@ export default function Dashboard() {
 
   // api call performance
   useEffect(() => {
-    async function getScorePerformance(id) {
+    async function getUserPerformance(id) {
       await get(`/user/${id}/performance`).then((response) => {
         var perfData = response.data.data.data;
         var kind = response.data.data.kind;
@@ -73,29 +74,29 @@ export default function Dashboard() {
           return perf;
         });
 
-        setPerformance(newPerfData);
+        setUserPerformance(newPerfData);
       });
     }
-    getScorePerformance(18);
+    getUserPerformance(18);
   }, []); // eslint-disable-line;
 
   useEffect(() => {
-    async function getScoreActivityValue(id) {
+    async function getUserActivity(id) {
       await get(`/user/${id}/activity`).then((response) => {
-        setActivityCount(response.data.data.sessions);
+        setUserActivityCount(response.data.data.sessions);
       });
     }
-    getScoreActivityValue(18);
+    getUserActivity(18);
   }, []);
 
   // api call graph average sessions
   useEffect(() => {
-    async function getAverageSessions(id) {
+    async function getUserAverageSessions(id) {
       await get(`/user/${id}/average-sessions`).then((response) => {
-        setAverageSessionsCount(response.data.data.sessions);
+        setUserAverageSessionsCount(response.data.data.sessions);
       });
     }
-    getAverageSessions(18);
+    getUserAverageSessions(18);
   }, []);
 
 
@@ -117,19 +118,19 @@ export default function Dashboard() {
                 <p>Activité quotidienne</p>
               </div>
               <div className='chart-acti'>
-                <ActivityChart data={activityCount} />
+                <ActivityChart data={userActivityCount} />
               </div>
             </div>
           </div>
           <div className='section2'>
             <div className='sess'>
               <div className='chart-sess'>
-                <SessionChart data={averageSessionsCount}/>
+                <SessionChart data={userAverageSessionsCount}/>
               </div>
             </div>
             <div className='perf'>
               <div className='chart-perf'>
-                <PerformanceChart data={performance} />
+                <PerformanceChart data={userPerformance} />
               </div>
             </div>
             <div className='sco'>
