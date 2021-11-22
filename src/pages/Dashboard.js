@@ -18,7 +18,7 @@ import '../custom/pages/dashboard.scss';
 export default function Dashboard() {
   // ---------- HOOK ----------------
 
-  const { get } = useApi();
+  const { get, api } = useApi(false);
 
   // ------------ STATE -------------
 
@@ -35,23 +35,23 @@ export default function Dashboard() {
   // api call for user informations (name)
   useEffect(() => {
     async function getUserProfile(id) {
-      await get(`/user/${id}`).then((response) => {
+      await api.getUserProfile(id).then((response) => {
         setUser(response.data.data.userInfos);
       });
     }
-    getUserProfile(18);
+    getUserProfile(12);
   }, []); // eslint-disable-line;
 
   // api call for cards (calorieCount, proteinCount, carbohydrateCount, lipidCount)
   useEffect(() => {
     async function getUserCounts(id) {
-      await get(`/user/${id}`).then((response) => {
+      await api.getUserProfile(id).then((response) => {
         setUserCount(response.data.data.keyData);
       });
     }
-    getUserCounts(18);
+    getUserCounts(12);
   }, []); // eslint-disable-line;
-
+// mettre un catch après
   // api call for graph score
   useEffect(() => {
     async function getUserScore(id) {
