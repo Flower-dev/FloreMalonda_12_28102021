@@ -18,7 +18,7 @@ import '../custom/pages/dashboard.scss';
 export default function Dashboard() {
   // ---------- HOOK ----------------
 
-  const { get, api } = useApi(false);
+  const { api } = useApi(false);
 
   // ------------ STATE -------------
 
@@ -32,15 +32,20 @@ export default function Dashboard() {
 
   // ------------ API CALL ----------
 
-  // api call for user informations (name)
+   // TODO : mettre un catch après
+
+  /**
+   * 
+   */
   useEffect(() => {
     async function getUserProfile(id) {
       await api.getUserProfile(id).then((response) => {
         setUser(response.data.data.userInfos);
-      });
+      })
+      .catch((error) => error.response);
     }
     getUserProfile(12);
-  }, []); // eslint-disable-line;
+  }, []); 
 
   // api call for cards (calorieCount, proteinCount, carbohydrateCount, lipidCount)
   useEffect(() => {
@@ -50,22 +55,22 @@ export default function Dashboard() {
       });
     }
     getUserCounts(12);
-  }, []); // eslint-disable-line;
-// mettre un catch après
+  }, []); 
+ 
   // api call for graph score
   useEffect(() => {
     async function getUserScore(id) {
-      await get(`/user/${id}`).then((response) => {
+      await api.getUserProfile(id).then((response) => {
         setUserScore(response.data.data.score);
       });
     }
-    getUserScore(18);
-  }, []); // eslint-disable-line;
+    getUserScore(12);
+  }, []); 
 
   // api call performance
   useEffect(() => {
     async function getUserPerformance(id) {
-      await get(`/user/${id}/performance`).then((response) => {
+      await api.getUserPerformance(id).then((response) => {
         var perfData = response.data.data.data;
         var kind = response.data.data.kind;
 
@@ -77,12 +82,12 @@ export default function Dashboard() {
         setUserPerformance(newPerfData);
       });
     }
-    getUserPerformance(18);
-  }, []); // eslint-disable-line;
+    getUserPerformance(12);
+  }, []); 
 
   useEffect(() => {
     async function getUserActivity(id) {
-      await get(`/user/${id}/activity`).then((response) => {
+      await api.getUserActivity(id).then((response) => {
         setUserActivityCount(response.data.data.sessions);
       });
     }
@@ -92,7 +97,7 @@ export default function Dashboard() {
   // api call graph average sessions
   useEffect(() => {
     async function getUserAverageSessions(id) {
-      await get(`/user/${id}/average-sessions`).then((response) => {
+      await api.getUserAverageSessions(id).then((response) => {
         setUserAverageSessionsCount(response.data.data.sessions);
       });
     }

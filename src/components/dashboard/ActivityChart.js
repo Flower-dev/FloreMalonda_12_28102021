@@ -21,6 +21,11 @@ function dayFormatter(date) {
 };
 
 // custom tooltip
+/**
+ * 
+ * @param {*} param0 
+ * @returns 
+ */
 function CustomTooltip({ active, payload }) {
   if (active) {
       return (
@@ -33,6 +38,11 @@ function CustomTooltip({ active, payload }) {
 };
 
 // custom cursor
+/**
+ * 
+ * @param {*} param0 
+ * @returns 
+ */
 function CustomCursor({ x, y, height }) {
   return (
       <Rectangle fill='#C4C4C480' x={x - 25} y={y} width={50} height={height} />
@@ -119,5 +129,5 @@ export default function ActivityChart({data}){
 }
 
 ActivityChart.propTypes = {
-  data: PropTypes.array
+  data: PropTypes.object
 };
