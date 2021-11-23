@@ -15,17 +15,24 @@ import {
 // ------------ FUNCTIONS ----------------
 
 // format date
+
+/**
+  * @param   {boolean} 	date    the API date in format yyyy-mm-dd
+  * @return  {number} 	          the day of the week (ie: 15)
+*/
+
 function dayFormatter(date) {
   const day = new Date(date).getDate();
   return day;
 };
 
 // custom tooltip
+  
 /**
- * 
- * @param {*} param0 
- * @returns 
- */
+  * @param   {boolean} 	active   the active tooltip
+  * @param   {Array} 		payload  the source data to be displayed in tooltip   
+*/
+
 function CustomTooltip({ active, payload }) {
   if (active) {
       return (
@@ -38,11 +45,13 @@ function CustomTooltip({ active, payload }) {
 };
 
 // custom cursor
+
 /**
- * 
- * @param {*} param0 
- * @returns 
- */
+  * @param   {number} 	x        horizontal axis ref
+  * @param   {number} 	y        vertical axis ref
+  * @param   {number} 	height   height of background cursor
+*/
+
 function CustomCursor({ x, y, height }) {
   return (
       <Rectangle fill='#C4C4C480' x={x - 25} y={y} width={50} height={height} />

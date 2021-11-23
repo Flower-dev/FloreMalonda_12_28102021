@@ -32,8 +32,6 @@ export default function Dashboard() {
 
   // ------------ API CALL ----------
 
-   // TODO : mettre un catch après
-
   /**
    * 
    */
@@ -45,7 +43,7 @@ export default function Dashboard() {
       .catch((error) => error.response);
     }
     getUserProfile(12);
-  }, []); 
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // api call for cards (calorieCount, proteinCount, carbohydrateCount, lipidCount)
   useEffect(() => {
@@ -55,7 +53,7 @@ export default function Dashboard() {
       });
     }
     getUserCounts(12);
-  }, []); 
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
  
   // api call for graph score
   useEffect(() => {
@@ -65,7 +63,7 @@ export default function Dashboard() {
       });
     }
     getUserScore(12);
-  }, []); 
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // api call performance
   useEffect(() => {
@@ -83,7 +81,7 @@ export default function Dashboard() {
       });
     }
     getUserPerformance(12);
-  }, []); 
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     async function getUserActivity(id) {
@@ -92,7 +90,7 @@ export default function Dashboard() {
       });
     }
     getUserActivity(12);
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // api call graph average sessions
   useEffect(() => {
@@ -102,55 +100,37 @@ export default function Dashboard() {
       });
     }
     getUserAverageSessions(12);
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
 
   return (
-    <div className='container'>
-      <div className='title_container'>
+    <div className='container'> 
+      <div className='chart_container'>
         <h1 className='title'>
           Bonjour <span className='title_name'>{user.firstName}</span>
         </h1>
         <p className='text'>
           Félicitation ! Vous avez explosé vos objectifs hier 👏🏻
         </p>
+        <div className='section1'>
+          <div className='section-graph'>
+            <ActivityChart data={userActivityCount} />
+          </div>
+        </div>
+        <div className='section2'>
+          <div className='section-graph2'>
+              <SessionChart data={userAverageSessionsCount}/>
+          </div>
+          <div className='section-graph2'>
+            <PerformanceChart data={userPerformance} />
+          </div>
+          <div className='section-graph2'>
+            <UserScoreChart data={userScore} />
+          </div>
+        </div>
       </div>
-      <div className='chart_container'>
-        <div className='section_chart'>
-          <div className='section1'>
-            <div className='acti'>
-              <div className='title-acti'>
-                <p>Activité quotidienne</p>
-              </div>
-              <div className='chart-acti'>
-                <ActivityChart data={userActivityCount} />
-              </div>
-            </div>
-          </div>
-          <div className='section2'>
-            <div className='sess'>
-              <div className='chart-sess'>
-                <SessionChart data={userAverageSessionsCount}/>
-              </div>
-            </div>
-            <div className='perf'>
-              <div className='chart-perf'>
-                <PerformanceChart data={userPerformance} />
-              </div>
-            </div>
-            <div className='sco'>
-              <div className='title-sco'>
-                <p>Score</p>
-              </div>
-              <div className='chart-sco'>
-                <UserScoreChart data={userScore} />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className='card_container'>
-          <Card key='cards' data={userCount} />
-        </div>
+      <div className='card_container'>
+        <Card key='cards' data={userCount} />
       </div>
     </div>
   );
