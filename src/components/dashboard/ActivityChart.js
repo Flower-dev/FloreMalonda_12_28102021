@@ -129,5 +129,5 @@ export default function ActivityChart({data}){
 }
 
 ActivityChart.propTypes = {
-  data: PropTypes.object
+  data: PropTypes.array
 };

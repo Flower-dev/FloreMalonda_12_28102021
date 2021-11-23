@@ -54,7 +54,7 @@ export default function UserScoreChart({ data }) {
 }
 
 UserScoreChart.propTypes = {
-  data: PropTypes.array
+  percentScore: PropTypes.number
 };
 
 

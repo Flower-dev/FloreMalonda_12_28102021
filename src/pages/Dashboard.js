@@ -61,7 +61,7 @@ export default function Dashboard() {
   useEffect(() => {
     async function getUserScore(id) {
       await api.getUserProfile(id).then((response) => {
-        setUserScore(response.data.data.score);
+        setUserScore(response.data.data.todayScore);
       });
     }
     getUserScore(12);
@@ -91,7 +91,7 @@ export default function Dashboard() {
         setUserActivityCount(response.data.data.sessions);
       });
     }
-    getUserActivity(18);
+    getUserActivity(12);
   }, []);
 
   // api call graph average sessions
@@ -101,7 +101,7 @@ export default function Dashboard() {
         setUserAverageSessionsCount(response.data.data.sessions);
       });
     }
-    getUserAverageSessions(18);
+    getUserAverageSessions(12);
   }, []);
 
 
