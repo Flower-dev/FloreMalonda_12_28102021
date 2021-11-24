@@ -11,6 +11,7 @@ import {
   ResponsiveContainer,
   Rectangle
 } from 'recharts';
+import '../../custom/dashboard/activityChart.scss'
 
 // ------------ FUNCTIONS ----------------
 
@@ -62,10 +63,10 @@ function CustomCursor({ x, y, height }) {
 
 export default function ActivityChart({data}){
   return (
-    <ResponsiveContainer width='100%' height={200}>
+    <div className="Activity">
+      <h3>Activité quotidienne</h3>
+    <ResponsiveContainer width='100%' height='80%'>
       <BarChart
-        width={830}
-        height={200}
         data={data}
         margin={{
           top: 5,
@@ -134,6 +135,7 @@ export default function ActivityChart({data}){
         />
       </BarChart>
     </ResponsiveContainer>
+    </div>
   );
 }
 

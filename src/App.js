@@ -1,14 +1,18 @@
-import './App.scss';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
 // components
-import Header from './components/Header';
-import Sidebar from './components/Sidebar';
+import Dashboard from './pages/Dashboard';
 
 function App() {
   return (
-    <div className='App'>
-      <Header/>
-      <Sidebar/>
-    </div>
+    <Router>
+      <Switch>
+        <Route path='/user/:id' component={Dashboard} />
+      </Switch>
+    </Router>
   );
 }
 
