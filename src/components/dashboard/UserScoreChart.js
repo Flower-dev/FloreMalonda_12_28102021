@@ -17,6 +17,10 @@ export default function UserScoreChart({ data }) {
   const percent = Math.round(score * 100);
   const percircle = Math.round(score * 360 );
 
+   /**
+   * Custom data to be used in the RadialBarChart and RadialBar components
+   */
+  
   const percentScore = [
     {
       value: percent,

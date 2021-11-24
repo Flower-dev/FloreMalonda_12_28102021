@@ -73,7 +73,11 @@ export default function Dashboard() {
       await api.getUserPerformance(id).then((response) => {
         var perfData = response.data.data.data;
         var kind = response.data.data.kind;
-
+        /**
+         * Custom data to be used in the RadarChart component
+         * copy PerfData
+         * add newPerfData array
+       */
         const newPerfData = perfData.map((perf) => {
           perf.kind = kind[perf.kind.toString()];
           return perf;
