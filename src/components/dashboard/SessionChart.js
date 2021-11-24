@@ -8,6 +8,8 @@ import {
   Legend,
   ResponsiveContainer
 } from 'recharts';
+//custom
+import '../../custom/dashboard/sessionChart.scss';
 
 
 export default function SessionChart({data}) {
@@ -57,10 +59,9 @@ export default function SessionChart({data}) {
   };
 
   return (
-    <ResponsiveContainer width='100%' height={510}>
+    <div className='Session'>
+    <ResponsiveContainer width='100%' height='100%'>
       <LineChart 
-        width={500}
-        height={200}
         data={data}
       >
         <Legend
@@ -81,7 +82,7 @@ export default function SessionChart({data}) {
           tickLine={false}
           padding={{ left: 10, right: 10 }}
           stroke='white'
-          tickMargin='-170'
+          tickMargin='20'
         />
         <Line
           connectNulls
@@ -108,6 +109,7 @@ export default function SessionChart({data}) {
         />
       </LineChart>
     </ResponsiveContainer>
+    </div>
   );
 }
 

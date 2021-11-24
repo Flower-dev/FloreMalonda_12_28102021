@@ -11,6 +11,8 @@ import {
   ActivityChart,
   SessionChart,
 } from '../components/dashboard/index';
+import Sidebar from '../components/Sidebar';
+import Header from '../components/Header';
 // custom
 import '../custom/pages/dashboard.scss';
 // ---------------------------------
@@ -32,8 +34,6 @@ export default function Dashboard() {
 
   // ------------ API CALL ----------
 
-   // TODO : mettre un catch après
-
   /**
    * 
    */
@@ -45,7 +45,7 @@ export default function Dashboard() {
       .catch((error) => error.response);
     }
     getUserProfile(12);
-  }, []); 
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // api call for cards (calorieCount, proteinCount, carbohydrateCount, lipidCount)
   useEffect(() => {
@@ -55,7 +55,7 @@ export default function Dashboard() {
       });
     }
     getUserCounts(12);
-  }, []); 
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
  
   // api call for graph score
   useEffect(() => {
@@ -65,7 +65,7 @@ export default function Dashboard() {
       });
     }
     getUserScore(12);
-  }, []); 
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // api call performance
   useEffect(() => {
@@ -83,7 +83,7 @@ export default function Dashboard() {
       });
     }
     getUserPerformance(12);
-  }, []); 
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     async function getUserActivity(id) {
@@ -91,8 +91,8 @@ export default function Dashboard() {
         setUserActivityCount(response.data.data.sessions);
       });
     }
-    getUserActivity(12);
-  }, []);
+    getUserActivity(18);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // api call graph average sessions
   useEffect(() => {
@@ -101,57 +101,39 @@ export default function Dashboard() {
         setUserAverageSessionsCount(response.data.data.sessions);
       });
     }
-    getUserAverageSessions(12);
-  }, []);
+    getUserAverageSessions(18);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
 
   return (
-    <div className='container'>
-      <div className='title_container'>
-        <h1 className='title'>
-          Bonjour <span className='title_name'>{user.firstName}</span>
-        </h1>
-        <p className='text'>
-          Félicitation ! Vous avez explosé vos objectifs hier 👏🏻
-        </p>
-      </div>
+    <div className='container'> 
+      <Header />
+      <Sidebar />
       <div className='chart_container'>
-        <div className='section_chart'>
-          <div className='section1'>
-            <div className='acti'>
-              <div className='title-acti'>
-                <p>Activité quotidienne</p>
-              </div>
-              <div className='chart-acti'>
-                <ActivityChart data={userActivityCount} />
-              </div>
+        <header>
+          <h1 className='title'>
+            Bonjour <span className='title_name'>{user.firstName}</span>
+          </h1>
+          <p className='text'>
+            Félicitation ! Vous avez explosé vos objectifs hier 👏🏻
+          </p>
+        </header>
+        <div className="grid-container">
+          <div className='graph-container'>
+            <div className='section1'>
+              <ActivityChart data={userActivityCount} />
+            </div>
+            <div className='section2'>
+              <SessionChart data={userAverageSessionsCount}/>
+              <PerformanceChart data={userPerformance} />
+              <UserScoreChart data={userScore} />
             </div>
           </div>
-          <div className='section2'>
-            <div className='sess'>
-              <div className='chart-sess'>
-                <SessionChart data={userAverageSessionsCount}/>
-              </div>
-            </div>
-            <div className='perf'>
-              <div className='chart-perf'>
-                <PerformanceChart data={userPerformance} />
-              </div>
-            </div>
-            <div className='sco'>
-              <div className='title-sco'>
-                <p>Score</p>
-              </div>
-              <div className='chart-sco'>
-                <UserScoreChart data={userScore} />
-              </div>
-            </div>
+          <div className='card_container'>
+            <Card key='cards' data={userCount} />
           </div>
         </div>
-        <div className='card_container'>
-          <Card key='cards' data={userCount} />
         </div>
-      </div>
     </div>
   );
 }

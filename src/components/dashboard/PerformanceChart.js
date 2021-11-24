@@ -8,19 +8,22 @@ import {
     ResponsiveContainer
 } from 'recharts';
 
+// custom
+import '../../custom/dashboard/performanceChart.scss'
+
 // -----------------------------------------
 
 export default function PerformanceChart({data}) {
 
   return (
-    <ResponsiveContainer width='100%' height={510}>
+    <div className="Radar">
+    <ResponsiveContainer width='100%' height='100%'>
       <RadarChart 
         cx='135' 
         cy='135' 
         outerRadius='70' 
         innerRadius='5%' 
-        width={300} 
-        height={500} 
+     
         data={data}
       >
         <PolarGrid radialLines={false} />
@@ -34,6 +37,7 @@ export default function PerformanceChart({data}) {
         <RadarRecharts dataKey='value' fill='red' fillOpacity={0.8} />
       </RadarChart>
     </ResponsiveContainer>
+    </div>
   );
 }
 
