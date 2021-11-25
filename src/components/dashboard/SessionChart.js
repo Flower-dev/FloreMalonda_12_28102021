@@ -72,7 +72,7 @@ export default function SessionChart({data}) {
             fontSize: 15,
             color: 'white',
             opacity: 0.5,
-            width: 145,
+            width: '100%',
           }}
         />
         <XAxis
@@ -82,7 +82,7 @@ export default function SessionChart({data}) {
           tickLine={false}
           padding={{ left: 10, right: 10 }}
           stroke='white'
-          tickMargin='20'
+          tickMargin='10'
         />
         <Line
           connectNulls

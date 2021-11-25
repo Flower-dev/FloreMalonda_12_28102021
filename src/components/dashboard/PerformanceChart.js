@@ -19,11 +19,8 @@ export default function PerformanceChart({data}) {
     <div className="Radar">
     <ResponsiveContainer width='100%' height='100%'>
       <RadarChart 
-        cx='135' 
-        cy='135' 
         outerRadius='70' 
         innerRadius='5%' 
-     
         data={data}
       >
         <PolarGrid radialLines={false} />
