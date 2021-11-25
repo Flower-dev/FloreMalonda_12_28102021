@@ -11,19 +11,17 @@ import {
   ActivityChart,
   SessionChart,
 } from '../components/dashboard/index';
-import Sidebar from '../components/Sidebar';
-import Header from '../components/Header';
 // custom
 import '../custom/pages/dashboard.scss';
-// ---------------------------------
+
+
+// ----------------------------------------
 
 export default function Dashboard() {
   // ---------- HOOK ----------------
-
   const { api } = useApi(false);
 
   // ------------ STATE -------------
-
   const [user, setUser] = useState([]);
   const [userScore, setUserScore] = useState([]);
   const [userCount, setUserCount] = useState([]);
@@ -35,7 +33,7 @@ export default function Dashboard() {
   // ------------ API CALL ----------
 
   /**
-   * 
+   * call api list 
    */
   useEffect(() => {
     async function getUserProfile(id) {
@@ -111,8 +109,6 @@ export default function Dashboard() {
 
   return (
     <div className='container'> 
-      <Header />
-      <Sidebar />
       <div className='chart_container'>
         <header>
           <h1 className='title'>

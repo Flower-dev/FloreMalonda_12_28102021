@@ -1,18 +1,15 @@
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from 'react-router-dom';
-// components
-import Dashboard from './pages/Dashboard';
+// custom
+import Sidebar from './components/Sidebar';
+import Header from './components/Header';
+
+// -------------------------
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path='/user/:id' component={Dashboard} />
-      </Switch>
-    </Router>
+    <div className='App'>
+      <Header/>
+      <Sidebar/>
+    </div>
   );
 }
 
