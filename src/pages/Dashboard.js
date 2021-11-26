@@ -19,7 +19,7 @@ import '../custom/pages/dashboard.scss';
 
 export default function Dashboard() {
   // ---------- HOOK ----------------
-  const { api } = useApi(false);
+  const { api } = useApi(true);
 
   // ------------ STATE -------------
   const [user, setUser] = useState([]);
@@ -40,7 +40,9 @@ export default function Dashboard() {
       await api.getUserProfile(id).then((response) => {
         setUser(response.data.data.userInfos);
       })
-      .catch((error) => error.response);
+      .catch(function (error) {
+        console.log(error);
+      })
     }
     getUserProfile(12);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -50,7 +52,10 @@ export default function Dashboard() {
     async function getUserCounts(id) {
       await api.getUserProfile(id).then((response) => {
         setUserCount(response.data.data.keyData);
-      });
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
     }
     getUserCounts(12);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -60,7 +65,10 @@ export default function Dashboard() {
     async function getUserScore(id) {
       await api.getUserProfile(id).then((response) => {
         setUserScore(response.data.data.todayScore);
-      });
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
     }
     getUserScore(12);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -82,7 +90,10 @@ export default function Dashboard() {
         });
 
         setUserPerformance(newPerfData);
-      });
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
     }
     getUserPerformance(12);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -91,7 +102,10 @@ export default function Dashboard() {
     async function getUserActivity(id) {
       await api.getUserActivity(id).then((response) => {
         setUserActivityCount(response.data.data.sessions);
-      });
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
     }
     getUserActivity(18);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -101,7 +115,10 @@ export default function Dashboard() {
     async function getUserAverageSessions(id) {
       await api.getUserAverageSessions(id).then((response) => {
         setUserAverageSessionsCount(response.data.data.sessions);
-      });
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
     }
     getUserAverageSessions(18);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
