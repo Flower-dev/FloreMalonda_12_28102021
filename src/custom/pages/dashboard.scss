@@ -1,10 +1,10 @@
 .chart_container {
-    padding-top: 5em;
+    padding-top: 6em;
 }
   
 header {
     position: relative;
-    left: 120px;
+    left: 125px;
     line-height: 10px;
     
     .title {
@@ -26,24 +26,25 @@ header {
 
 .chart_container .grid-container {
     position: relative;
-    left: 120px;
-    // max-width: calc(1000px - 120px - 4em);
-    width: 100vw;
+    left: 125px;
+    right: -125px;
+    width: 100%;
     display: flex;
     flex-direction: row;
+    height: 100%; 
     bottom: 10px;
-    height: 100%;
+
     
     .graph-container {
-        width: 75%;
+        width: 70%;
         justify-content: space-between;
 
         .section1 {
-            width: 80%;
+            width: 100%;
         }
 
         .section2 {
-            width: 80%;
+            width: 100%;
             display: flex;
             flex-direction: row;
             justify-content: space-around;
@@ -51,7 +52,10 @@ header {
     }
 
     .card_container {
+        top: 200px;
         width: 20%;
+        right: 5px;
+        margin-left: 1%;
     }
     
 }

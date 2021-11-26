@@ -29,24 +29,24 @@ export default function UserScoreChart({ data }) {
 
   function CustomizedLegend() {
     return (
-      <p className="custom-legend">
+      <p className='custom-legend'>
         <span>{percent}%</span> de votre objectif
       </p>
     );
   };
 
   return (
-    <div className="Score">
+    <div className='Score'>
       <h3>Score</h3>
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width='100%' height='100%'>
         <RadialBarChart
-          innerRadius="90%"
-          outerRadius="80%"
+          innerRadius='90%'
+          outerRadius='80%'
           barSize={10}
           data={percentScore}
         >
-          <PolarAngleAxis range={[0, percircle]} type="number" tick={false} />
-          <RadialBar cornerRadius={50} dataKey="value" fill="#FF0000" />
+          <PolarAngleAxis range={[0, percircle]} type='number' tick={false} />
+          <RadialBar cornerRadius={50} dataKey='value' fill='#FF0000' />
           <Legend
             content={<CustomizedLegend />}
             wrapperStyle={{
