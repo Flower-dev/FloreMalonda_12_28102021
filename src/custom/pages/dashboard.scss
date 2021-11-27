@@ -3,8 +3,7 @@
 }
   
 header {
-    position: relative;
-    left: 125px;
+    padding-left: 120px;
     line-height: 10px;
     
     .title {
@@ -25,10 +24,7 @@ header {
   
 
 .chart_container .grid-container {
-    position: relative;
-    left: 125px;
-    right: -125px;
-    width: 100%;
+    padding-left: 120px;
     display: flex;
     flex-direction: row;
     height: 100%; 

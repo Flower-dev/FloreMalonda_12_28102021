@@ -38,7 +38,7 @@ class ApiMock {
 						lastName: 'Ratorez',
 						age: 34,
 					},
-					todayScore: 0.16,
+					todayScore: 0.8,
 					keyData: {
 						calorieCount: 2500,
 						proteinCount: 90,

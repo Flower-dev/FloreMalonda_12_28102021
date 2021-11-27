@@ -15,7 +15,7 @@ import '../../custom/dashboard/scoreChart.scss';
 export default function UserScoreChart({ data }) {
   const score = data;
   const percent = Math.round(score * 100);
-  const percircle = Math.round(score * 360 );
+  // const percircle = Math.round(score * 360);
 
    /**
    * Custom data to be used in the RadialBarChart and RadialBar components
@@ -44,14 +44,18 @@ export default function UserScoreChart({ data }) {
           outerRadius='80%'
           barSize={10}
           data={percentScore}
+          startAngle={90}
+          endAngle={-270}
+          cx='50%'
+          cy='35%'
         >
-          <PolarAngleAxis range={[0, percircle]} type='number' tick={false} />
+          <PolarAngleAxis domain={[0,100]} type='number' tick={false} />
           <RadialBar cornerRadius={50} dataKey='value' fill='#FF0000' />
           <Legend
             content={<CustomizedLegend />}
             wrapperStyle={{
               top: 90,
-              left: 80,
+              left: 90,
             }}
           />
         </RadialBarChart>

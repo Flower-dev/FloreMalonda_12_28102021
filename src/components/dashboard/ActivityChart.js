@@ -89,14 +89,14 @@ export default function ActivityChart({data}){
           padding={{ left: 15, right: 15 }}
         />
         <YAxis  
-          dataKey='kilogram'
+          dataKey='calories'
           tickCount={4}
           orientation='right'
           tickLine={false}
           axisLine={false}
           tickMargin={20}
           allowDataOverflow={true}
-          domain={[67 , 'maxData']}
+          domain={[0, 'dataMax + 10']}
         />
         <Tooltip 
         cursor={<CustomCursor />}

@@ -4,6 +4,7 @@ import {
   LineChart,
   Line,
   XAxis,
+  YAxis,
   Tooltip,
   Legend,
   ResponsiveContainer
@@ -83,6 +84,11 @@ export default function SessionChart({data}) {
           padding={{ left: 10, right: 10 }}
           stroke='white'
           tickMargin='10'
+        />
+        <YAxis 
+          domain={[0, 100]}
+          axisLine={false}
+          hide={true}
         />
         <Line
           connectNulls
