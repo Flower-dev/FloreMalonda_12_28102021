@@ -54,8 +54,8 @@ export default function UserScoreChart({ data }) {
           <Legend
             content={<CustomizedLegend />}
             wrapperStyle={{
-              top: 90,
-              left: 90,
+              top: 40,
+              left: 115,
             }}
           />
         </RadialBarChart>
