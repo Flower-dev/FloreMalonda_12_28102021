@@ -107,7 +107,7 @@ export default function Dashboard() {
         console.log(error);
       })
     }
-    getUserActivity(18);
+    getUserActivity(12);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // api call graph average sessions
@@ -120,7 +120,7 @@ export default function Dashboard() {
         console.log(error);
       })
     }
-    getUserAverageSessions(18);
+    getUserAverageSessions(12);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
 
