@@ -54,7 +54,7 @@ export default function UserScoreChart({ scoreCount }) {
           <Legend
             content={<CustomizedLegend />}
             wrapperStyle={{
-              top: 40,
+              top: 65,
               left: 115,
             }}
           />
