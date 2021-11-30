@@ -13,7 +13,7 @@ import {
 import '../../custom/dashboard/sessionChart.scss';
 
 
-export default function SessionChart({data}) {
+export default function SessionChart({averageSessions}) {
 
   function CustomizedLegend() {
     return <p className='custom-legend'>Durée moyenne des sessions</p>;
@@ -63,7 +63,7 @@ export default function SessionChart({data}) {
     <div className='Session'>
     <ResponsiveContainer width='100%' height='100%'>
       <LineChart 
-        data={data}
+        data={averageSessions}
       >
         <Legend
           content={<CustomizedLegend />}

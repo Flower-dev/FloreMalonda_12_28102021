@@ -12,8 +12,8 @@ import '../../custom/dashboard/scoreChart.scss';
 
 // ----------------------
 
-export default function UserScoreChart({ data }) {
-  const score = data;
+export default function UserScoreChart({ scoreCount }) {
+  const score = scoreCount;
   const percent = Math.round(score * 100);
   // const percircle = Math.round(score * 360);
 

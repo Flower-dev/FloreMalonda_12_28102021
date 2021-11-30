@@ -13,7 +13,7 @@ import '../../custom/dashboard/performanceChart.scss'
 
 // -----------------------------------------
 
-export default function PerformanceChart({data}) {
+export default function PerformanceChart({performance}) {
 
   return (
     <div className="Radar">
@@ -21,7 +21,7 @@ export default function PerformanceChart({data}) {
       <RadarChart 
         outerRadius='70' 
         innerRadius='5%' 
-        data={data}
+        data={performance}
       >
         <PolarGrid radialLines={false} />
         <PolarAngleAxis

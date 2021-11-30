@@ -138,16 +138,16 @@ export default function Dashboard() {
         <div className="grid-container">
           <div className='graph-container'>
             <div className='section1'>
-              <ActivityChart data={userActivityCount} />
+              <ActivityChart activityCount={userActivityCount} />
             </div>
             <div className='section2'>
-              <SessionChart data={userAverageSessionsCount}/>
-              <PerformanceChart data={userPerformance} />
-              <UserScoreChart data={userScore} />
+              <SessionChart averageSessions={userAverageSessionsCount}/>
+              <PerformanceChart performance={userPerformance} />
+              <UserScoreChart scoreCount={userScore} />
             </div>
           </div>
           <div className='card_container'>
-            <Card key='cards' data={userCount} />
+            <Card key='cards' values={userCount} />
           </div>
         </div>
         </div>

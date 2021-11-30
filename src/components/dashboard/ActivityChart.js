@@ -61,13 +61,13 @@ function CustomCursor({ x, y, height }) {
 
 // -----------------------------
 
-export default function ActivityChart({data}){
+export default function ActivityChart({activityCount}){
   return (
     <div className="Activity">
       <h3>Activité quotidienne</h3>
     <ResponsiveContainer width='100%' height='80%'>
       <BarChart
-        data={data}
+        data={activityCount}
         margin={{
           top: 5,
           right: 30,

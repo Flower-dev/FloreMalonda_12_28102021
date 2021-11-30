@@ -8,7 +8,7 @@ import Fat from '../../assets/fat-icon.png';
 import '../../custom/dashboard/card.scss';
 
 
-export default function Card({data}) {
+export default function Card({values}) {
 
 /**
      *
@@ -19,25 +19,25 @@ export default function Card({data}) {
       {
         icon: Calories,
         alt: 'calories',
-        title: `${data.calorieCount}kCal`,
+        title: `${values.calorieCount}kCal`,
         subtitle: 'Calories',
       },
       {
         icon: Protein,
         alt: 'proteines',
-        title: `${data.proteinCount}g`,
+        title: `${values.proteinCount}g`,
         subtitle: 'Protéines',
       },
       {
         icon: Carbs,
         alt: 'glucides',
-        title: `${data.carbohydrateCount}g`,
+        title: `${values.carbohydrateCount}g`,
         subtitle: 'Glucides',
       },
       {
         icon: Fat,
         alt: 'lipides',
-        title: `${data.lipidCount}g`,
+        title: `${values.lipidCount}g`,
         subtitle: 'Lipides',
       },
   ];
