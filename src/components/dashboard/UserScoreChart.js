@@ -47,14 +47,14 @@ export default function UserScoreChart({ scoreCount }) {
           startAngle={90}
           endAngle={-270}
           cx='50%'
-          cy='35%'
+          cy='32%'
         >
           <PolarAngleAxis domain={[0,100]} type='number' tick={false} />
           <RadialBar cornerRadius={50} dataKey='value' fill='#FF0000' />
           <Legend
             content={<CustomizedLegend />}
             wrapperStyle={{
-              top: 65,
+              top: 55,
               left: 115,
             }}
           />
