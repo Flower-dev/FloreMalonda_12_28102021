@@ -19,7 +19,7 @@ import '../custom/pages/dashboard.scss';
 
 export default function Dashboard() {
   // ---------- HOOK ----------------
-  const { api } = useApi(true);
+  const { api } = useApi(false);
 
   // ------------ STATE -------------
   const [user, setUser] = useState([]);
